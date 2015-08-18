@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aprendendo Servlet</title>
+<link rel="stylesheet"
+	href="resources/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="resources/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
+</head>
+<body>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Lava Jato</h3>
+			</div>
+			<div class="panel-body">
+				<form method="post" action="geranota">
+					<div class="form-group">
+						<label>Nome</label> <input type="text" name="nomeCliente"
+							class="form-control" placeholder="Nome do cliente">
+					</div>
+					<label class="radio-inline"> <input type="radio"
+						name="tipoVeiculo" value="carro"> Carro
+					</label> <label class="radio-inline"> <input type="radio"
+						name="tipoVeiculo" value="moto"> Moto
+					</label> <label class="radio-inline"> <input type="radio"
+						name="tipoVeiculo" value="caminhonete"> Caminhonete
+					</label>
+					
+					<div class="checkbox">
+						<label> <input type="checkbox" name="servico" value="lavar"> Lavar
+						</label>
+					</div>
+					<div class="checkbox">
+						<label> <input type="checkbox" name="servico" value="aspirar"> Aspirar
+						</label>
+					</div>
+					<div class="checkbox">
+						<label> <input type="checkbox" name="servico" value="encerar"> Encerar
+						</label>
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
