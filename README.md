@@ -17,7 +17,10 @@
 ###Deve ser gerado a nota calculando o subtotal, aplicar o desconto e depois gerar o valor total
 ex:
 
-| Produto | valor   |
+###### Cliente:**João da Silva**
+###### Veiculo:**Carro**
+
+| Serviço | valor   |
 |---------|---------|
 | lavar    | R$20,00 |
 | aspirar  | R$5,00  |
