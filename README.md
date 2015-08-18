@@ -14,4 +14,13 @@
 * 3 serviços = 15%
 
 
-##Deve ser gerado a nota calculando o subtotal, aplicar o desconto e depois gerar o valor total
+###Deve ser gerado a nota calculando o subtotal, aplicar o desconto e depois gerar o valor total
+ex:
+
+| Produto | valor   |
+|---------|---------|
+| lavar    | R$20,00 |
+| aspirar  | R$5,00  |
+| Subtotal | R$25,00 |
+| *Desconto* | *R$2,50*  |
+| **Total**    | **R$22,50** |
