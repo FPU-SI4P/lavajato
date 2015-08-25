@@ -9,19 +9,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import me.impressione.fpu.lavajato.entidades.ItemNota;
+import me.impressione.fpu.lavajato.entidades.Nota;
+
 @WebServlet(urlPatterns = "/geranota")
 public class GeradorDeNotas extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nomeCliente = req.getParameter("nomeCliente");
+		String veiculo = req.getParameter("tipoVeiculo");
+		String[] servicos = req.getParameterValues("servico");
 		PrintWriter writer = resp.getWriter();
-		String nota = montarNota(nomeCliente);
-		writer.write(nota);
+		if (nomeCliente != null && veiculo != null && servicos != null && servicos.length >= 1) {
+			Nota nota = new Nota(nomeCliente, veiculo, servicos);
+			writer.write(montarNota(nota));
+		} else {
+			writer.write("Erro, falta de parametros");
+		}
 	}
 
-	private String montarNota(String nomeCliente) {
+	private String montarNota(Nota nota) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html>");
 		sb.append("<head>");
@@ -36,10 +45,31 @@ public class GeradorDeNotas extends HttpServlet {
 		sb.append("</div>");
 		sb.append("<div class='panel-body'>");
 		sb.append("Nome: ");
-		sb.append(nomeCliente);
+		sb.append(nota.getNome());
 		sb.append("");
 		sb.append("");
+		sb.append("<br>");
+		for (ItemNota itemNota : nota.getItensNota()) {
+			sb.append(itemNota.getServico());
+			sb.append(" = ");
+			sb.append(itemNota.getValor());
+			sb.append("<br>");
+		}
 		sb.append("");
+		sb.append("<br>");
+		sb.append("subtotal");
+		sb.append(nota.getSubTotal());
+		sb.append("<br>");
+		sb.append("desconto");
+		sb.append(nota.getDesconto());
+		sb.append("<br>");
+		sb.append("total");
+		sb.append(nota.getTotal());
+		sb.append("");
+		sb.append("</div>");
+		sb.append("<div class='panel-footer'>");
+		sb.append("<a class='btn btn-default' href='index.html' role='button'>Voltar</a>");
+
 		sb.append("</div>");
 		sb.append("</div>");
 		sb.append("</div>");
